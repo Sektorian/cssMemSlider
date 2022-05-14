@@ -81,15 +81,11 @@ body {
     transition: 1.5s;
 }
 
-.slider__title1 {
-
-}
-
 .slider__controls {
     grid-area: controls;
     display: grid;
     grid-template-columns: repeat(4, 20px);
-    grid-template-rows: 50px;
+    /*grid-template-rows: 50px;*/
     justify-content: flex-end;
     align-items: center;
 }
@@ -170,4 +166,49 @@ label {
 #radio-4:checked ~  .title:nth-of-type(4) {
     transform: translate(0, 0);
     transition: 1.5s;
+}
+
+@media (max-width: 800px) {
+    .main__container {
+        max-width: var(--mobile);
+        padding: 0 10px;
+    }
+    .slider {
+        display: grid;
+        
+        grid-template-columns: 150px 150px;
+        grid-template-rows: 200px 30px 30px;
+        grid-template-areas:    "pic pic"
+                                "controls controls"
+                                "title title";
+        width: var(--mob-slider);
+        overflow: hidden;
+    }
+    .slide {
+        width: 300px;
+        height: 200px;
+    }
+    .slider__controls {
+        padding-top: 10px;
+        justify-content: center;
+    }
+    .slide-1 {
+        transform: translate(300px, 0);
+    }
+
+    #radio-1:checked ~ .slide__container > .slide-1 {
+        transform: translate(0, 0);
+    }
+    
+    #radio-2:checked ~ .slide__container > .slide-2 {
+        transform: translate(-300px, 0);
+    }
+    
+    #radio-3:checked ~ .slide__container > .slide-3 {
+        transform: translate(-600px, 0);
+    }
+    
+    #radio-4:checked ~ .slide__container > .slide-4 {
+        transform: translate(-900px, 0);
+    }
 }
