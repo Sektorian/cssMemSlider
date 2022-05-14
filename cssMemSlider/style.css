@@ -47,28 +47,28 @@ body {
     width: 900px;
     height: 600px;
     border-radius: 10px;
-    
+    filter: opacity(0);
 }
 
 .slide-1 {
     border-radius: 10px;
     transform: translate(900px, 0);
-    transition: 0.5s;
+    transition: 1.5s;
 }
 .slide-2 {
     border-radius: 10px;
     transform: translate(0px, 0);
-    transition: 0.5s;
+    transition: 1.5s;
 }
 .slide-3 {
     border-radius: 10px;
     transform: translate(0px, 0);
-    transition: 0.5s;
+    transition: 1.5s;
 }
 .slide-4 {
     border-radius: 10px;
     transform: translate(0px, 0);
-    transition: 0.5s;
+    transition: 1.5s;
 }
 
 .title {
@@ -77,6 +77,8 @@ body {
     align-items: center;
     background-color: rgb(90, 90, 90);
     font-size: 20px;
+    transform: translate(0, 300px);
+    transition: 1.5s;
 }
 
 .slider__title1 {
@@ -144,16 +146,28 @@ label {
 
 #radio-1:checked ~ .slide__container > .slide-1 {
     transform: translate(0, 0);
+    filter: opacity(1);
 }
 
 #radio-2:checked ~ .slide__container > .slide-2 {
     transform: translate(-900px, 0);
+    filter: opacity(1);
 }
 
 #radio-3:checked ~ .slide__container > .slide-3 {
     transform: translate(-1800px, 0);
+    filter: opacity(1);
 }
 
 #radio-4:checked ~ .slide__container > .slide-4 {
     transform: translate(-2700px, 0);
+    filter: opacity(1);
+}
+
+#radio-1:checked ~  .title:nth-of-type(1),
+#radio-2:checked ~  .title:nth-of-type(2),
+#radio-3:checked ~  .title:nth-of-type(3),
+#radio-4:checked ~  .title:nth-of-type(4) {
+    transform: translate(0, 0);
+    transition: 1.5s;
 }
