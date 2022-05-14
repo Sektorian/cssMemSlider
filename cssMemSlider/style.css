@@ -1,6 +1,6 @@
 :root {
     --mobile: 800px;
-    --desk-slider: 900px;
+    --desk-slider: 60vw;
     --mob-slider: 300px;
 }
 
@@ -20,7 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1280px;
+    /*max-width: 1280px;*/
     margin: 0 auto;
     padding: 0 40px;
 }
@@ -28,8 +28,8 @@ body {
 .slider {
     display: grid;
     
-    grid-template-columns: 450px 450px;
-    grid-template-rows: 600px 50px;
+    grid-template-columns: calc(var(--desk-slider) / 2) var(--desk-slider) /2; /*450px 450px;*/
+    grid-template-rows: calc(var(--desk-slider) / 1.5) 50px;
     grid-template-areas:    "pic pic"
                             "title controls";
     width: var(--desk-slider);
@@ -44,30 +44,30 @@ body {
 }
 
 .slide {
-    width: 900px;
-    height: 600px;
+    width: var(--desk-slider);
+    height: calc(var(--desk-slider) / 1.5);
     border-radius: 10px;
     filter: opacity(0);
 }
 
 .slide-1 {
     border-radius: 10px;
-    transform: translate(900px, 0);
+    transform: translate(var(--desk-slider), 0);
     transition: 1.5s;
 }
 .slide-2 {
     border-radius: 10px;
-    transform: translate(0px, 0);
+    transform: translate(0, 0);
     transition: 1.5s;
 }
 .slide-3 {
     border-radius: 10px;
-    transform: translate(0px, 0);
+    transform: translate(0, 0);
     transition: 1.5s;
 }
 .slide-4 {
     border-radius: 10px;
-    transform: translate(0px, 0);
+    transform: translate(0, 0);
     transition: 1.5s;
 }
 
@@ -75,7 +75,6 @@ body {
     grid-area: title;
     display: flex;
     align-items: center;
-    background-color: rgb(90, 90, 90);
     font-size: 20px;
     transform: translate(0, 300px);
     transition: 1.5s;
@@ -85,7 +84,6 @@ body {
     grid-area: controls;
     display: grid;
     grid-template-columns: repeat(4, 20px);
-    /*grid-template-rows: 50px;*/
     justify-content: flex-end;
     align-items: center;
 }
@@ -140,23 +138,24 @@ label {
 }
 
 
+
 #radio-1:checked ~ .slide__container > .slide-1 {
     transform: translate(0, 0);
     filter: opacity(1);
 }
 
 #radio-2:checked ~ .slide__container > .slide-2 {
-    transform: translate(-900px, 0);
+    transform: translate(-60vw, 0);
     filter: opacity(1);
 }
 
 #radio-3:checked ~ .slide__container > .slide-3 {
-    transform: translate(-1800px, 0);
+    transform: translate(calc(-60vw * 2), 0);
     filter: opacity(1);
 }
 
 #radio-4:checked ~ .slide__container > .slide-4 {
-    transform: translate(-2700px, 0);
+    transform: translate(calc(-60vw * 3), 0);
     filter: opacity(1);
 }
 
